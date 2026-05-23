@@ -1,0 +1,129 @@
+{
+  "generated_at": "2026-05-22T05:40:27.745100+00:00",
+  "method": "CNN (Conv1D)",
+  "accuracy": 0.9472222222222222,
+  "precision_macro": 0.9486086850792734,
+  "recall_macro": 0.9472222222222222,
+  "f1_macro": 0.9470264369108417,
+  "precision_weighted": 0.9486086850792734,
+  "recall_weighted": 0.9472222222222222,
+  "f1_weighted": 0.9470264369108415,
+  "n_samples": 1800,
+  "n_train": 1440,
+  "n_test": 360,
+  "n_classes": 10,
+  "labels": [
+    "Brunei",
+    "Filipina",
+    "Indonesia",
+    "Kamboja",
+    "Laos",
+    "Malaysia",
+    "Myanmar",
+    "Singapura",
+    "Thailand",
+    "Vietnam"
+  ],
+  "audio_config": {
+    "sample_rate": 16000,
+    "duration_sec": 1.2,
+    "n_mfcc": 20,
+    "n_fft": 512,
+    "hop_length": 160,
+    "win_length": 400,
+    "fmin": 50,
+    "fmax": 8000
+  },
+  "cnn": {
+    "epochs_requested": 35,
+    "batch_size": 32,
+    "optimizer": "Adam(lr=1e-3)",
+    "loss": "sparse_categorical_crossentropy",
+    "input_shape": [
+      121,
+      20
+    ],
+    "layers": [
+      "Conv1D(32,k=5)",
+      "MaxPool(2)",
+      "Conv1D(64,k=3)",
+      "MaxPool(2)",
+      "Flatten",
+      "Dense(128)",
+      "Dense(10)"
+    ]
+  },
+  "history": {
+    "accuracy": [
+      0.6138888597488403,
+      0.9145833253860474,
+      0.9694444537162781,
+      0.9868055582046509,
+      0.9993055462837219,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "loss": [
+      1.3142948150634766,
+      0.32873472571372986,
+      0.14046616852283478,
+      0.06210329383611679,
+      0.018750373274087906,
+      0.006822854746133089,
+      0.003963260445743799,
+      0.002501485636457801,
+      0.0019130378495901823,
+      0.0015348761808127165,
+      0.001270691747777164,
+      0.0010745066683739424,
+      0.0009011166985146701,
+      0.0007788570947013795
+    ],
+    "val_accuracy": [
+      0.855555534362793,
+      0.9111111164093018,
+      0.8972222208976746,
+      0.9277777671813965,
+      0.9305555820465088,
+      0.9472222328186035,
+      0.9472222328186035,
+      0.9444444179534912,
+      0.9416666626930237,
+      0.9416666626930237,
+      0.9416666626930237,
+      0.9416666626930237,
+      0.9472222328186035,
+      0.9416666626930237
+    ],
+    "val_loss": [
+      0.6143719553947449,
+      0.406680166721344,
+      0.3479033410549164,
+      0.2691481113433838,
+      0.23845766484737396,
+      0.2488590031862259,
+      0.24630816280841827,
+      0.24137359857559204,
+      0.2493080198764801,
+      0.2539037764072418,
+      0.2578548789024353,
+      0.255008339881897,
+      0.261742502450943,
+      0.258550226688385
+    ]
+  },
+  "artifacts": {
+    "model_h5": "C:/Users/irfan/OneDrive/Documents/Irfan Nur Iqbal/KULIAH/Semester 6/PENGENALAN UCAPAN DAN TEKS KE UCAPAN/UAS/PROJEK/models/asr_cnn.h5",
+    "confusion_matrix_png": "C:/Users/irfan/OneDrive/Documents/Irfan Nur Iqbal/KULIAH/Semester 6/PENGENALAN UCAPAN DAN TEKS KE UCAPAN/UAS/PROJEK/outputs/confusion_matrix_cnn.png",
+    "classification_report_txt": "C:/Users/irfan/OneDrive/Documents/Irfan Nur Iqbal/KULIAH/Semester 6/PENGENALAN UCAPAN DAN TEKS KE UCAPAN/UAS/PROJEK/outputs/classification_report_cnn.txt",
+    "classification_report_json": "C:/Users/irfan/OneDrive/Documents/Irfan Nur Iqbal/KULIAH/Semester 6/PENGENALAN UCAPAN DAN TEKS KE UCAPAN/UAS/PROJEK/outputs/classification_report_cnn.json",
+    "training_plot_png": "C:/Users/irfan/OneDrive/Documents/Irfan Nur Iqbal/KULIAH/Semester 6/PENGENALAN UCAPAN DAN TEKS KE UCAPAN/UAS/PROJEK/outputs/cnn_training_plot.png"
+  }
+}

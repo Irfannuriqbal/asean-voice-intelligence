@@ -1,0 +1,27 @@
+# Web demo dependencies (Gradio dashboard)
+# Install:
+#   python -m pip install -r requirements_web.txt
+#
+# Penting (Windows):
+# - Inference CNN butuh TensorFlow.
+# - Jika environment Anda memakai Python 3.13, TensorFlow sering belum tersedia.
+#   Gunakan Python 3.11/3.12 (contoh: venv `cnn-env` di repo ini).
+
+# Dependencies minimal untuk web demo (tidak menarik dependency desktop GUI).
+numpy>=1.26
+scipy>=1.11
+librosa>=0.10.2
+soundfile>=0.12.1
+matplotlib>=3.8
+pillow>=10.0
+
+# Web UI
+gradio>=6.0
+
+# ML (CNN inference)
+# Marker ini mencegah pip error di Python 3.13.
+tensorflow>=2.16; python_version < "3.13"
+h5py>=3.10; python_version < "3.13"
+
+# TTS offline (Windows SAPI5)
+pyttsx3>=2.90

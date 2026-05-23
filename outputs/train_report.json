@@ -1,0 +1,107 @@
+{
+  "generated_at": "2026-05-21T11:36:47.260335+00:00",
+  "accuracy": 0.8027777777777778,
+  "precision_macro": 0.8042047376023035,
+  "recall_macro": 0.8027777777777778,
+  "f1_macro": 0.8014682681336668,
+  "precision_weighted": 0.8042047376023035,
+  "recall_weighted": 0.8027777777777778,
+  "f1_weighted": 0.8014682681336669,
+  "n_samples": 1800,
+  "n_train": 1440,
+  "n_test": 360,
+  "n_classes": 10,
+  "labels": [
+    "Brunei",
+    "Filipina",
+    "Indonesia",
+    "Kamboja",
+    "Laos",
+    "Malaysia",
+    "Myanmar",
+    "Singapura",
+    "Thailand",
+    "Vietnam"
+  ],
+  "model": {
+    "type": "Pipeline(StandardScaler + MLPClassifier)",
+    "mlp_hidden_layer_sizes": [
+      128,
+      64
+    ],
+    "mlp_activation": "relu",
+    "mlp_alpha": 0.0001,
+    "mlp_batch_size": 32,
+    "mlp_learning_rate_init": 0.001,
+    "mlp_max_iter": 400,
+    "mlp_early_stopping": true,
+    "random_state": 42
+  },
+  "artifacts": {
+    "confusion_matrix_png": "C:/Users/irfan/OneDrive/Documents/Irfan Nur Iqbal/KULIAH/Semester 6/PENGENALAN UCAPAN DAN TEKS KE UCAPAN/UAS/PROJEK/outputs/confusion_matrix.png",
+    "classification_report_txt": "C:/Users/irfan/OneDrive/Documents/Irfan Nur Iqbal/KULIAH/Semester 6/PENGENALAN UCAPAN DAN TEKS KE UCAPAN/UAS/PROJEK/outputs/classification_report.txt",
+    "classification_report_json": "C:/Users/irfan/OneDrive/Documents/Irfan Nur Iqbal/KULIAH/Semester 6/PENGENALAN UCAPAN DAN TEKS KE UCAPAN/UAS/PROJEK/outputs/classification_report.json"
+  },
+  "confusion_analysis_top": [
+    {
+      "true": "Malaysia",
+      "pred": "Indonesia",
+      "count": 5,
+      "rate_within_true": 0.1388888888888889
+    },
+    {
+      "true": "Brunei",
+      "pred": "Filipina",
+      "count": 3,
+      "rate_within_true": 0.08333333333333333
+    },
+    {
+      "true": "Filipina",
+      "pred": "Vietnam",
+      "count": 3,
+      "rate_within_true": 0.08333333333333333
+    },
+    {
+      "true": "Indonesia",
+      "pred": "Singapura",
+      "count": 3,
+      "rate_within_true": 0.08333333333333333
+    },
+    {
+      "true": "Singapura",
+      "pred": "Indonesia",
+      "count": 3,
+      "rate_within_true": 0.08333333333333333
+    },
+    {
+      "true": "Thailand",
+      "pred": "Singapura",
+      "count": 3,
+      "rate_within_true": 0.08333333333333333
+    },
+    {
+      "true": "Brunei",
+      "pred": "Myanmar",
+      "count": 2,
+      "rate_within_true": 0.05555555555555555
+    },
+    {
+      "true": "Indonesia",
+      "pred": "Malaysia",
+      "count": 2,
+      "rate_within_true": 0.05555555555555555
+    },
+    {
+      "true": "Kamboja",
+      "pred": "Myanmar",
+      "count": 2,
+      "rate_within_true": 0.05555555555555555
+    },
+    {
+      "true": "Kamboja",
+      "pred": "Thailand",
+      "count": 2,
+      "rate_within_true": 0.05555555555555555
+    }
+  ]
+}

@@ -1,0 +1,900 @@
+/*
+  Futuristic AI Dashboard (Premium Dark + Neon Cyan / Electric Blue)
+  Digunakan oleh web_app.py (Gradio Blocks).
+
+  Fokus:
+  - Glassmorphism cards + subtle neon glow
+  - Modern AI product spacing & typography
+  - Futuristic buttons, micro-interactions, responsive layout
+
+  Palet sesuai request:
+  - Accent: #00D9FF (neon cyan)
+  - Accent 2: #00BFFF (electric blue)
+  - Background: #0A0F1F, #111827
+*/
+
+:root {
+  --bg0: #0a0f1f;
+  --bg1: #111827;
+  --panel: rgba(10, 18, 35, 0.92);
+  --panel2: rgba(10, 18, 35, 0.82);
+  --border: rgba(255, 255, 255, 0.14);
+  --border2: rgba(0, 217, 255, 0.18);
+
+  --text0: rgba(255, 255, 255, 0.92);
+  --text1: rgba(255, 255, 255, 0.72);
+  --text2: rgba(255, 255, 255, 0.56);
+
+  --cyan: #00d9ff;
+  --blue: #00bfff;
+  --glow: rgba(0, 217, 255, 0.35);
+  --glow2: rgba(0, 191, 255, 0.22);
+
+  --radius: 18px;
+  --radius2: 14px;
+}
+
+/* Reduce harsh selection highlight */
+::selection {
+  background: rgba(0, 217, 255, 0.22);
+}
+
+/* Background global */
+.gradio-container {
+  background:
+    radial-gradient(
+      900px 520px at 18% 12%,
+      rgba(0, 217, 255, 0.1),
+      transparent 62%
+    ),
+    radial-gradient(
+      900px 520px at 84% 0%,
+      rgba(0, 191, 255, 0.1),
+      transparent 62%
+    ),
+    radial-gradient(
+      720px 520px at 60% 78%,
+      rgba(0, 217, 255, 0.06),
+      transparent 58%
+    ),
+    linear-gradient(180deg, var(--bg0), #070b14 70%, #050713);
+  color: var(--text0);
+  font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Global spacing/typography tuning */
+.gradio-container * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.gradio-container a {
+  color: var(--cyan);
+}
+
+/* Header */
+.ai-header {
+  padding: 22px 18px 10px 18px;
+  margin: 4px 0 14px 0;
+  color: var(--text0);
+}
+
+.ai-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.ai-branding {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-copy {
+  display: grid;
+  gap: 4px;
+}
+
+.ai-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.action-row {
+  display: grid;
+  grid-template-columns: minmax(140px, 1fr) minmax(180px, 1fr) minmax(
+      180px,
+      1fr
+    );
+  gap: 12px;
+  align-items: center;
+  margin-top: 18px;
+}
+
+@media (max-width: 900px) {
+  .action-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ai-icon-stack {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 217, 255, 0.1),
+    rgba(0, 191, 255, 0.06)
+  );
+  border: 1px solid rgba(0, 217, 255, 0.22);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+    0 12px 30px rgba(0, 0, 0, 0.35),
+    0 0 32px rgba(0, 217, 255, 0.1);
+  overflow: hidden;
+}
+
+.ai-icon {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  filter: drop-shadow(0 0 12px rgba(0, 217, 255, 0.22));
+}
+
+.ai-icon-mic {
+  transform: translate(10px, 9px);
+  opacity: 0.92;
+}
+
+.ai-icon-robot {
+  transform: translate(-8px, -7px);
+  opacity: 0.92;
+}
+
+.ai-title {
+  font-weight: 900;
+  color: var(--text0);
+  letter-spacing: 0.6px;
+  font-size: clamp(32px, 3vw, 44px);
+  line-height: 1.06;
+  text-shadow:
+    0 0 18px rgba(0, 217, 255, 0.14),
+    0 0 48px rgba(0, 191, 255, 0.08);
+}
+
+.ai-subtitle {
+  margin-top: 8px;
+  color: var(--text1);
+  font-size: 14px;
+  letter-spacing: 0.2px;
+}
+
+.ai-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 8px 12px;
+  border: 1px solid rgba(0, 217, 255, 0.18);
+  background: rgba(10, 15, 31, 0.54);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 999px;
+  color: var(--text1);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+    0 0 18px rgba(0, 217, 255, 0.08);
+}
+
+.ai-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--cyan);
+  box-shadow: 0 0 18px var(--glow);
+}
+
+/* Glass cards */
+.glass-card {
+  border: 1px solid var(--border) !important;
+  background: var(--panel) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: var(--radius) !important;
+  box-shadow:
+    0 22px 80px rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    border-color 200ms ease;
+  animation: fadeUp 420ms ease both;
+}
+
+.glass-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 217, 255, 0.16) !important;
+  box-shadow:
+    0 26px 90px rgba(0, 0, 0, 0.44),
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+}
+
+.card-title {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: var(--text0);
+}
+
+.card-subtitle {
+  color: var(--text1);
+  font-size: 12px;
+}
+
+/* Neon outlines */
+.neon-outline {
+  box-shadow:
+    0 0 0 1px rgba(0, 217, 255, 0.1) inset,
+    0 0 34px rgba(0, 217, 255, 0.06);
+}
+
+/* Tighten Gradio markdown headings */
+.gradio-container h3 {
+  margin-top: 6px;
+  margin-bottom: 10px;
+}
+
+/* Prediction typography */
+.prediction-big {
+  font-size: clamp(34px, 3.2vw, 48px);
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  margin: 6px 0 6px;
+  color: var(--text0);
+  text-shadow: 0 0 26px rgba(0, 217, 255, 0.12);
+}
+
+.confidence-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.confidence-big {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 0;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 217, 255, 0.28);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 217, 255, 0.12),
+    rgba(0, 191, 255, 0.08)
+  );
+  color: var(--text0);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+    0 0 24px rgba(0, 217, 255, 0.08);
+  animation: confGlow 1.6s ease-in-out infinite;
+}
+
+.conf-chip {
+  font-size: 12px;
+  color: var(--text2);
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.confidence-spark {
+  height: 12px;
+  width: 120px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 217, 255, 0),
+    rgba(0, 217, 255, 0.24),
+    rgba(0, 191, 255, 0)
+  );
+  filter: blur(0.2px);
+  opacity: 0.75;
+}
+
+.conf-bar {
+  height: 8px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.conf-bar > div {
+  height: 100%;
+  width: var(--conf, 0%);
+  background: linear-gradient(90deg, var(--cyan), var(--blue));
+  box-shadow: 0 0 18px var(--glow);
+}
+
+.topk-title {
+  margin-top: 14px;
+  color: var(--text2);
+  font-size: 12px;
+  letter-spacing: 0.35px;
+  text-transform: uppercase;
+}
+
+.topk-list {
+  margin-top: 10px;
+  display: grid;
+  gap: 8px;
+}
+
+.topk-item {
+  display: grid;
+  grid-template-columns: 58px 1fr 70px;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 18, 35, 0.24);
+  box-shadow: 0 0 0 1px rgba(0, 217, 255, 0.05) inset;
+  transition:
+    border-color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.topk-item:hover {
+  transform: translateY(-1px);
+  border-color: rgba(0, 217, 255, 0.2);
+  box-shadow:
+    0 0 0 1px rgba(0, 217, 255, 0.1) inset,
+    0 0 22px rgba(0, 217, 255, 0.08);
+}
+
+.topk-rank {
+  color: rgba(0, 217, 255, 0.85);
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+.topk-label {
+  color: var(--text0);
+  font-weight: 700;
+}
+
+.topk-score {
+  text-align: right;
+  color: var(--text1);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Status pill */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(10, 18, 35, 0.32);
+  color: var(--text1);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.pulse {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--cyan);
+  box-shadow: 0 0 22px var(--glow);
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.92);
+    opacity: 0.55;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes confGlow {
+  0% {
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+      0 0 18px rgba(0, 217, 255, 0.06);
+  }
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+      0 0 28px rgba(0, 217, 255, 0.12);
+  }
+  100% {
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+      0 0 18px rgba(0, 217, 255, 0.06);
+  }
+}
+
+/* Inputs (textbox / dropdown) */
+.gradio-container textarea,
+.gradio-container input,
+.gradio-container select {
+  border-radius: var(--radius2) !important;
+}
+
+/* Gradio default blocks are white; neutralize inside our glass cards */
+.glass-card .block,
+.glass-card .wrap {
+  background: transparent !important;
+}
+
+/* Gradio 6 uses an inner `.styler` div with a light background by default */
+.glass-card .styler {
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+/* Some components (notably Dropdown/Radio groups) are wrapped in a light `.form` container */
+.glass-card .form {
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+/* Inputs inside cards should be dark + readable */
+.glass-card textarea,
+.glass-card input[type="text"],
+.glass-card input[role="listbox"] {
+  background: rgba(10, 18, 35, 0.92) !important;
+  color: var(--text0) !important;
+  border-color: rgba(96, 165, 250, 0.24) !important;
+}
+
+/* Gradio component label badges (avoid white chips) */
+#mic_audio > label,
+#mfcc_img > label {
+  background: rgba(10, 15, 31, 0.72) !important;
+  color: rgba(255, 255, 255, 0.86) !important;
+  border: 1px solid rgba(0, 217, 255, 0.22) !important;
+  box-shadow: 0 0 0 1px rgba(0, 217, 255, 0.08) inset;
+  backdrop-filter: blur(10px);
+}
+
+.glass-card .block {
+  border-color: transparent !important;
+}
+
+/* Ensure specific components don't render white boxes */
+#mic_audio,
+#mfcc_img,
+#tts_audio,
+#tts_text,
+#status_pill {
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+#mic_audio .wrap,
+#mfcc_img .wrap,
+#tts_audio .wrap,
+#tts_text .wrap {
+  background: transparent !important;
+}
+
+.gradio-container textarea {
+  background: rgba(10, 18, 35, 0.92) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: var(--text0) !important;
+  box-shadow: 0 0 0 1px rgba(0, 217, 255, 0.05) inset;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.gradio-container textarea:focus {
+  outline: none !important;
+  border-color: rgba(0, 217, 255, 0.3) !important;
+  box-shadow:
+    0 0 0 1px rgba(0, 217, 255, 0.08) inset,
+    0 0 26px rgba(0, 217, 255, 0.1);
+}
+
+/* Futuristic buttons (precise IDs from web_app.py) */
+#btn_analyze,
+#btn_tts {
+  border-radius: 14px !important;
+  padding: 11px 14px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.3px !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 217, 255, 0.2),
+    rgba(0, 191, 255, 0.18)
+  ) !important;
+  border: 1px solid rgba(0, 217, 255, 0.3) !important;
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+    0 0 28px rgba(0, 217, 255, 0.1);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease;
+}
+
+#btn_analyze:hover,
+#btn_tts:hover {
+  transform: translateY(-1px);
+  border-color: rgba(0, 217, 255, 0.44) !important;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 217, 255, 0.26),
+    rgba(0, 191, 255, 0.22)
+  ) !important;
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.44),
+    0 0 0 1px rgba(255, 255, 255, 0.07) inset,
+    0 0 34px rgba(0, 217, 255, 0.14);
+}
+
+#btn_analyze:active,
+#btn_tts:active {
+  transform: translateY(0);
+}
+
+/* Microphone section polish */
+#mic_audio {
+  border-radius: var(--radius) !important;
+}
+
+#mic_audio button {
+  border-radius: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  background: rgba(10, 18, 35, 0.42) !important;
+  color: var(--text0) !important;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+#mic_audio button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(0, 217, 255, 0.22) !important;
+  box-shadow:
+    0 0 0 1px rgba(0, 217, 255, 0.07) inset,
+    0 0 24px rgba(0, 217, 255, 0.1);
+}
+
+/* Make mic controls feel consistent */
+#mic_audio button {
+  box-shadow: 0 0 0 1px rgba(0, 217, 255, 0.03) inset;
+}
+
+/* MFCC & audio outputs feel like analytics tiles */
+#mfcc_img,
+#tts_audio {
+  border-radius: var(--radius) !important;
+}
+
+#mfcc_img img,
+#tts_audio img {
+  border-radius: var(--radius) !important;
+}
+
+#mfcc_img {
+  box-shadow:
+    0 0 0 1px rgba(0, 217, 255, 0.06) inset,
+    0 0 30px rgba(0, 217, 255, 0.06);
+}
+
+/* Country panel */
+.country-title {
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0.4px;
+  margin-bottom: 12px;
+  text-shadow: 0 0 22px rgba(0, 217, 255, 0.1);
+}
+
+.country-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.kv {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 12px;
+  align-items: baseline;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(10, 18, 35, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 1px rgba(0, 217, 255, 0.05) inset;
+}
+
+.kv .k {
+  color: var(--text2);
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.kv .v {
+  color: var(--text0);
+}
+
+/* Footer */
+.gradio-container .md {
+  color: var(--text1);
+}
+
+/* Keep panels responsive */
+@media (max-width: 980px) {
+  .ai-icon-stack {
+    width: 40px;
+    height: 40px;
+  }
+  .ai-subtitle {
+    font-size: 13px;
+  }
+  .kv {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .ai-header {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+}
+
+.ai-headline {
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 11px;
+  color: #7dd3fc;
+  margin-bottom: 10px;
+}
+
+.theme-switcher {
+  border-radius: 14px !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: var(--text0) !important;
+  font-weight: 700 !important;
+  padding: 10px 16px !important;
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease,
+    color 160ms ease;
+}
+
+.theme-switcher:hover {
+  transform: translateY(-1px);
+  border-color: rgba(0, 217, 255, 0.28) !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+}
+
+html.light-mode {
+  --bg0: #f8fbff;
+  --bg1: #edf4ff;
+  --panel: rgba(255, 255, 255, 0.96);
+  --panel2: rgba(248, 250, 255, 0.94);
+  --border: rgba(148, 163, 184, 0.24);
+  --border2: rgba(96, 165, 250, 0.18);
+  --text0: #0f172a;
+  --text1: #475569;
+  --text2: #64748b;
+  --cyan: #0f6fff;
+  --blue: #2563eb;
+  --glow: rgba(59, 130, 246, 0.12);
+  --glow2: rgba(37, 99, 235, 0.08);
+}
+
+html.light-mode .gradio-container {
+  background: linear-gradient(135deg, #f8fbff 0%, #eef4fd 48%, #f3f8ff 100%);
+  color: var(--text0);
+}
+
+html.light-mode .glass-card,
+html.light-mode .glass-card .block,
+html.light-mode .glass-card .wrap,
+html.light-mode .glass-card .styler,
+html.light-mode .glass-card .form {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border-color: rgba(148, 163, 184, 0.24) !important;
+  color: var(--text0) !important;
+  box-shadow:
+    0 18px 40px rgba(15, 23, 42, 0.08),
+    0 0 0 1px rgba(255, 255, 255, 0.72) inset !important;
+}
+
+html.light-mode .ai-header {
+  color: var(--text0);
+}
+
+html.light-mode .ai-title {
+  color: #0f172a;
+  text-shadow: none;
+}
+
+html.light-mode .ai-subtitle,
+html.light-mode .card-subtitle,
+html.light-mode .gradio-container .md,
+html.light-mode .topk-score,
+html.light-mode .kv .k {
+  color: var(--text1) !important;
+}
+
+html.light-mode .ai-badge {
+  background: rgba(241, 245, 255, 0.88);
+  border-color: rgba(96, 165, 250, 0.16);
+  color: var(--text1);
+}
+
+html.light-mode .ai-icon-stack {
+  background: rgba(239, 246, 255, 0.82);
+  border-color: rgba(96, 165, 250, 0.22);
+}
+
+html.light-mode .ai-icon {
+  filter: none;
+}
+
+html.light-mode .topk-item,
+html.light-mode .country-card,
+html.light-mode .kv {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(96, 165, 250, 0.16);
+}
+
+html.light-mode .conf-bar {
+  background: rgba(15, 111, 255, 0.08);
+  border-color: rgba(96, 165, 250, 0.16);
+}
+
+html.light-mode .conf-bar > div {
+  box-shadow: none;
+}
+
+html.light-mode .status-pill {
+  background: rgba(255, 255, 255, 0.82);
+  border-color: rgba(96, 165, 250, 0.16);
+  color: var(--text0);
+}
+
+html.light-mode .status-pill .pulse {
+  box-shadow: 0 0 18px var(--glow);
+}
+
+html.light-mode textarea,
+html.light-mode input,
+html.light-mode select,
+html.light-mode .gradio-container textarea,
+html.light-mode .gradio-container input,
+html.light-mode .gradio-container select,
+html.light-mode .glass-card textarea,
+html.light-mode .glass-card input,
+html.light-mode .glass-card select {
+  background: rgba(255, 255, 255, 0.96) !important;
+  color: var(--text0) !important;
+  border-color: rgba(148, 163, 184, 0.26) !important;
+  box-shadow: inset 0 0 0 1px rgba(96, 165, 250, 0.08) !important;
+}
+
+html.light-mode #btn_analyze,
+html.light-mode #btn_tts,
+html.light-mode .theme-switcher {
+  color: var(--text0) !important;
+  background: linear-gradient(
+    90deg,
+    rgba(15, 111, 255, 0.22),
+    rgba(37, 99, 235, 0.18)
+  ) !important;
+  border-color: rgba(37, 99, 235, 0.28) !important;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12) !important;
+}
+
+html.light-mode #btn_analyze:hover,
+html.light-mode #btn_tts:hover,
+html.light-mode .theme-switcher:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(15, 111, 255, 0.32),
+    rgba(37, 99, 235, 0.24)
+  ) !important;
+}
+
+html.light-mode #mic_audio > label,
+html.light-mode #mfcc_img > label,
+html.light-mode #tts_audio > label,
+html.light-mode #tts_text > label {
+  background: rgba(255, 255, 255, 0.94) !important;
+  color: var(--text0) !important;
+  border-color: rgba(96, 165, 250, 0.16) !important;
+}
+
+html.light-mode #mic_audio,
+html.light-mode #mfcc_img,
+html.light-mode #tts_audio,
+html.light-mode #tts_text,
+html.light-mode .country-card,
+html.light-mode .topk-item {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border-color: rgba(148, 163, 184, 0.18) !important;
+}
+
+html.light-mode .gradio-container .block,
+html.light-mode .gradio-container .wrap,
+html.light-mode .gradio-container .styler,
+html.light-mode .gradio-container .form {
+  background: transparent !important;
+  color: var(--text0) !important;
+}
+
+html.light-mode .gradio-container .md,
+html.light-mode .gradio-container .markdown,
+html.light-mode .gradio-container .block p,
+html.light-mode .gradio-container .block span,
+html.light-mode .gradio-container .block label,
+html.light-mode .gradio-container .block div,
+html.light-mode .gradio-container .label {
+  color: var(--text0) !important;
+}
+
+html.light-mode .glass-card,
+html.light-mode #mic_audio,
+html.light-mode #mfcc_img,
+html.light-mode #tts_audio,
+html.light-mode #tts_text,
+html.light-mode .country-card,
+html.light-mode .topk-item {
+  background: rgba(255, 255, 255, 0.98) !important;
+  border-color: rgba(148, 163, 184, 0.24) !important;
+}
+
+html.light-mode .gradio-container,
+html.light-mode .gradio-container * {
+  color: var(--text0) !important;
+}

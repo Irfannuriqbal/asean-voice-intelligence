@@ -1,0 +1,16 @@
+              precision    recall  f1-score   support
+
+      Brunei     0.8056    0.8056    0.8056        36
+    Filipina     0.8056    0.8056    0.8056        36
+   Indonesia     0.7179    0.7778    0.7467        36
+     Kamboja     0.9091    0.8333    0.8696        36
+        Laos     0.9189    0.9444    0.9315        36
+    Malaysia     0.7586    0.6111    0.6769        36
+     Myanmar     0.7500    0.9167    0.8250        36
+   Singapura     0.8108    0.8333    0.8219        36
+    Thailand     0.7714    0.7500    0.7606        36
+     Vietnam     0.7941    0.7500    0.7714        36
+
+    accuracy                         0.8028       360
+   macro avg     0.8042    0.8028    0.8015       360
+weighted avg     0.8042    0.8028    0.8015       360

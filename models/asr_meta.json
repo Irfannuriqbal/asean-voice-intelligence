@@ -1,0 +1,26 @@
+{
+  "labels": [
+    "Brunei",
+    "Filipina",
+    "Indonesia",
+    "Kamboja",
+    "Laos",
+    "Malaysia",
+    "Myanmar",
+    "Singapura",
+    "Thailand",
+    "Vietnam"
+  ],
+  "sample_rate": 16000,
+  "duration_sec": 1.2,
+  "audio_config": {
+    "sample_rate": 16000,
+    "duration_sec": 1.2,
+    "n_mfcc": 20,
+    "n_fft": 512,
+    "hop_length": 160,
+    "win_length": 400,
+    "fmin": 50,
+    "fmax": 8000
+  }
+}
